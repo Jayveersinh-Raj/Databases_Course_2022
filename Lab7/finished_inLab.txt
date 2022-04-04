@@ -1,0 +1,26 @@
+It took me quite a while to understand and explore DBeaver, here is what I did so far in the lab
+
+
+SQL for onenf
+create table onenf(
+orderID serial primary key,
+date date,
+customerID serial not null,
+customerName char(20),
+city char(10),
+itemId serial not null,
+itemName char(10),
+quant int,
+price money
+);
+
+//Added some custom data to it
+
+SQL for twonf
+create table twonf(
+customerID serial primary key,
+itemId serial not null,
+itemName char(10),
+quant int,
+price money
+);
