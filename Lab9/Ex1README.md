@@ -1,24 +1,24 @@
   <b><li> #Python code for Ex1 inclduing all the subtasks in one code: </b><br/>
 
-   import psycopg2 <br/>
-   from geopy.geocoders import Nominatim <br/>
-   import psycopg2.extras <br/>
+    import psycopg2 
+    from geopy.geocoders import Nominatim 
+    import psycopg2.extras 
 
-   hostname = 'localhost' <br/>
-   database = 'dvdrental' <br/>
-   username = 'postgres'  <br/>
-   pwd = 'jyvr2891'  <br/>
-   port_id = 5432
-
-   conn = None <br/>
-   cur = None <br/>
-   try: <br/>
-        conn = psycopg2.connect ( <br/>
-            host = hostname, <br/>
-            dbname = database, <br/>
-            user = username, <br/>
-            password = pwd, <br/>
-            port = port_id <br/>
+    hostname = 'localhost' 
+    database = 'dvdrental' 
+    username = 'postgres'  
+    pwd = 'jyvr2891'  
+    port_id = 5432
+ 
+    conn = None 
+    cur = None 
+    try: 
+        conn = psycopg2.connect ( 
+            host = hostname, 
+            dbname = database, 
+            user = username, 
+            password = pwd, 
+            port = port_id 
         ) <br/>
         
         # Inclusive task, creates 2 new columns latitude and longitude
@@ -80,14 +80,14 @@
   
         conn.commit()
 
-except Exception as error: <br/>
-     print(error) <br/>
+    except Exception as error: 
+     print(error) 
 
-finally : <br/>
-    if conn is not None: <br/>
-        conn.close() <br/>
-    if cur is not None: <br/>
-        cur.close() <br/>
+    finally : 
+      if conn is not None: 
+        conn.close() 
+      if cur is not None: 
+        cur.close() 
         
         
    <br/>
@@ -96,41 +96,44 @@ finally : <br/>
 ########################################## SQL Queries #####################################<br/>
 <br/>
 <br/>
-<p><b><li>Inclusive task to add 2 columns latitude and longitude: </b> <br/>
-ALTER TABLE address <br/>
-        ADD COLUMN latitude float, <br/>
-        ADD COLUMN longitude float; <br/>
+<b><li>Inclusive task to add 2 columns latitude and longitude: </b><br/>
+
+    ALTER TABLE address 
+      ADD COLUMN latitude float, 
+      ADD COLUMN longitude float; 
         
 Screenshot with those columns: <br/>
 ![Screenshot (885)](https://user-images.githubusercontent.com/69463767/163729407-affb4f72-1e07-43be-87a7-33916fe1cbc1.png)
 
-</p>
 <br/>
 <br/>
 <br/>
-<p><b><li>
+<b><li>
 1. Sub Task 1: </b><br/>
- SELECT * FROM address <br/>
-        WHERE city_id>=400 AND city_id<=600 AND <br/>
-        address.address LIKE '%11%' <br/>
+  
+    SELECT * FROM address 
+        WHERE city_id>=400 AND city_id<=600 AND 
+        address.address LIKE '%11%' 
         
   Screenshot: <br/>
      ![Screenshot (886)](https://user-images.githubusercontent.com/69463767/163729467-9697fe98-b2e5-4e91-8e53-4c84f7b9cf59.png)
-                                           </p>
-  <p><b><li>
+                                          
+  <b><li>
  2.  Sub Task 2: </b><br/>
-UPDATE address <br/>
-        SET <br/>
-        latitude = %s, <br/>
-        longitude = %s <br/>
-        WHERE district = %s; <br/>
+ 
+    UPDATE address 
+        SET 
+        latitude = %s, 
+        longitude = %s 
+        WHERE district = %s; 
         
 Screenshot: <br/>
 ![Screenshot (887)](https://user-images.githubusercontent.com/69463767/163729541-8d2cd97b-569c-464c-8734-b45864bfc711.png)
 </p>
 <p><b><li>
 3. Sub Task 3: </b><br/>
-   Although, screenshot of 2 covers some 0s, but some more are here: <br/>
+  
+   <b>Although, screenshot of 2 covers some 0s, but some more are here: </b><br/>
    Screenshot: <br/>
 
 ![Screenshot (888)](https://user-images.githubusercontent.com/69463767/163730167-a045fbe7-6b40-44b9-b186-ac9d1a58c22f.png)
