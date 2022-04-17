@@ -51,7 +51,7 @@
     #Example to retreive data between 10 and 40 
     customerRetrieval(10,40) 
   
-   <b><li> The following is the screenshot with id and name (So it is easier to access) in the example 10 to 40 range: </b><br/>
+   <b><li> The following is the screenshot with id and name (so it is easier to assess) in the example 10 to 40 range: </b><br/>
   <br/>
   <br/>
    ![image](https://user-images.githubusercontent.com/69463767/163733128-56769b0c-8e15-4114-ac01-4ca8f007488b.png)
