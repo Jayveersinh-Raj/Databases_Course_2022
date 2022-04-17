@@ -43,12 +43,8 @@
         for record in data:
                 print((record['district'], record['postal_code']))
         
-        const = 0
-        update = '''
-        
-        
-        
         # Sub task 2 and 3 are comprised in the following:
+        update = '''
         UPDATE address 
         SET 
         latitude = %s,
