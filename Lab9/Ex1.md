@@ -19,7 +19,7 @@
             user = username, 
             password = pwd, 
             port = port_id 
-        ) <br/>
+        ) 
         
         # Inclusive task, creates 2 new columns latitude and longitude
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
