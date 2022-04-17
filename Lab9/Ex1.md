@@ -1,4 +1,4 @@
-  <b><li> #Python code for Ex1 inclduing all the subtasks in one code: </b><br/>
+  <b><li> #Python code for Ex1 including all the subtasks in one code: </b><br/>
 
     import psycopg2 
     from geopy.geocoders import Nominatim 
