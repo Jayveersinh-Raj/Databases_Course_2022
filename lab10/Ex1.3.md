@@ -1,6 +1,6 @@
 Table ledger :
 
-    create table ledger(id int not null primary key,
+    create table ledger(id serial not null primary key,
 				   sender int not null,
 				   receiver int not null,
 				   fee int not null,
@@ -29,6 +29,38 @@ Transactions and updating the table ledger on that basis :
     update accounts set credit = credit + 100 where id = 3;
     INSERT INTO ledger (id,sender,receiver,fee,amount,transactiondatetime) VALUES (3,2,3,30,100,current_timestamp);
     
+    
+Function to insert values into ledger :
+
+    CREATE OR REPLACE FUNCTION transaction(sender integer, receiver integer, amount integer, sender_bank character, receiver_bank character) 
+    RETURNS TABLE (id INT,
+           name CHAR,
+           credit INT,
+           currency CHAR,
+           bankname CHAR) AS $$
+    declare
+    fees integer:=30;
+    BEGIN 
+
+    if sender_bank = receiver_bank then  
+           update accounts set credit = accounts.credit - amount  where accounts.id = sender;
+           update accounts set credit = accounts.credit + amount where accounts.id = receiver;
+	   INSERT INTO ledger (id,sender,receiver,fee,amount,transactiondatetime) VALUES (sender,receiver,0,amount,current_timestamp);
+    end if;
+           
+    if sender_bank != receiver_bank then
+           update accounts set credit = accounts.credit - amount - fees where accounts.id = sender;
+           update accounts set credit = accounts.credit + amount where accounts.id = receiver;
+	   INSERT INTO ledger (id,sender,receiver,fee,amount,transactiondatetime) VALUES (sender,receiver,fees,amount,current_timestamp);
+    end if;
+
+           
+           RETURN QUERY SELECT * 
+    FROM 
+    accounts;
+    END; $$ 
+
+    LANGUAGE 'plpgsql';
     
     
     
