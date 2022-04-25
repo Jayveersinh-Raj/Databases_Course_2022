@@ -15,3 +15,7 @@ changes committed during transaction execution by concurrent transactions.
 <br>
 
 Repeatable Read:
+![Screenshot (902)](https://user-images.githubusercontent.com/69463767/165112158-36a0582d-77ef-4d9f-86db-576dd96e7311.png)
+<br>
+<br><br>
+Reason for the above :<br>
