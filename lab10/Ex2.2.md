@@ -19,3 +19,4 @@ Repeatable Read:
 <br>
 <br><br>
 Reason for the above :<br>
+Because a repeatable read transaction cannot modify or lock rows changed by other transactions after the repeatable read transaction began.
