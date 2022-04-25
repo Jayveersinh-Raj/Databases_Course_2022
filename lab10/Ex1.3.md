@@ -30,7 +30,7 @@ Transactions and updating the table ledger on that basis :
     INSERT INTO ledger (id,sender,receiver,fee,amount,transactiondatetime) VALUES (3,2,3,30,100,current_timestamp);
     
     
-Function to insert values into ledger :
+Updated function from 1.2 to also insert values into ledger :
 
     CREATE OR REPLACE FUNCTION transaction(sender integer, receiver integer, amount integer, sender_bank character, receiver_bank character) 
     RETURNS TABLE (id INT,
